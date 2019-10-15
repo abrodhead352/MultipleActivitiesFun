@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
         //this is called as a result of startActivityWithResult
         //good pracitice
         if(requestCode == LOGIN_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-
+            String result = data.getStringExtra("result");
+            TextView tv = (TextView) findViewById(R.id.defaultTextView);
+            tv.setText(result);
         }
     }
 
@@ -63,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("username", username);
                 intent.putExtra("pin", pin);
                 //startActivity(intent);
-                //startActivityForResult(intent, );
+                startActivityForResult(intent, LOGIN_REQUEST_CODE);
 
                 //Toast.makeText(MainActivity.this, result, Toast.LENGTH_LONG).show();
             }
