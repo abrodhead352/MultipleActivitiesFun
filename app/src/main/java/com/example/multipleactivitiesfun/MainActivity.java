@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -69,6 +70,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, LOGIN_REQUEST_CODE);
 
                 //Toast.makeText(MainActivity.this, result, Toast.LENGTH_LONG).show();
+            }
+        });
+
+        Button viewButton = (Button) findViewById(R.id.viewGUHomepageButton);
+        viewButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: ");
+                //4. implicit intent example #1
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                Uri guUri = Uri.parse("https:/www.gonzaga.edu");
+                intent.setData(guUri);
+                startActivity(intent);
             }
         });
     }
