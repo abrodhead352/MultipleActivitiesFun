@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MultipleActivitiesFun</string>
+    <string name="title_activity_share">ShareActivity</string>
 </resources>

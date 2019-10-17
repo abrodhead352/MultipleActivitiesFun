@@ -85,6 +85,18 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button sendMessageButton = (Button) findViewById(R.id.sendMessageButton);
+        sendMessageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 5.implicit intent example 2
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain"); //mime type -- identifying different types of media
+                intent.putExtra(Intent.EXTRA_TEXT, "My message");
+                startActivity(intent);
+            }
+        });
     }
 
 
